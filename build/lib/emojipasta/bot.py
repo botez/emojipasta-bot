@@ -9,7 +9,7 @@ from discord.ext.commands import Bot
 from discord.ext import commands
 from discord.ext.commands.cooldowns import BucketType
 import platform
-#from util.keys import DISCORD_BOT_KEY
+from util.keys import DISCORD_BOT_KEY
 #from util.keys import DB_VARS as DBVAR
 
 import psycopg2
@@ -355,6 +355,6 @@ def main():
     for cog in cogs:
         client.load_extension(cog)
 
-    client.run("NTIyNDkxMTA2MDE3OTM1MzYz.DvLvaw.yulrjVAUcjPmloUWA8FKK6_LSb4")
+    client.run(DISCORD_BOT_KEY)
 if __name__ == "__main__":
     main()
