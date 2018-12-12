@@ -1,4 +1,4 @@
-from util.keys import AZURE_API_KEY
+#from util.keys import AZURE_API_KEY
 import asyncio, aiohttp, discord
 from PIL import ImageFont
 from PIL import ImageDraw
