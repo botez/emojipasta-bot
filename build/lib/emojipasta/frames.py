@@ -349,6 +349,83 @@ class Frames():
     async def rh(self):
         pass
 
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def 9112(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def 911(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def dole(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def cnid(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def jf1(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def bann(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def bulge(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def jempy(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def shapiro(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def garf1(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def fuckyou(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def funeral(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def blood(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def clash(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def wedding(self):
+        pass
+
+
+
 #film frames
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
