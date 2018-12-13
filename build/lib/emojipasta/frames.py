@@ -351,7 +351,13 @@ class Frames():
 
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
-    async def 911(self):
+    async def x911(self):
+        pass
+
+    
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def x9112(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
