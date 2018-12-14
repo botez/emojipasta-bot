@@ -425,6 +425,101 @@ class Frames():
     async def wedding(self):
         pass
 
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def comic1(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def comic2(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def conway(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def crosshair(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def garf2(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def garf3(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def garf4(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def gccx1(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def gccx2(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def general(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def grinch(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def mars(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def picard(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def piss(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def science(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def socks(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def spaghett(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def vine1(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def warcrime(self):
+        pass
+
 
 
 #film frames
