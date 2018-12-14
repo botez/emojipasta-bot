@@ -103,12 +103,9 @@ class Bot_Image_Filter():
         if not (per is None and url is None):
             try:
                 per = int(per)
-                if per == 100:
-                    await self.client.say(":no_entry_sign: You're trying to shrink an image to 100% of it's size. Percentage defaulted to 5%")
-                    per = 5
-                if per > 100:
-                    await self.client.say(":no_entry_sign: This is the *shrink* command. Percentage defaulted to 5%")
-                    per = 5
+                if per >= 100 or per < 1:
+                    await self.client.say(":no_entry_sign: Percentage argument must be between 1 and 99.")
+                    return
             except:
                 url = per
                 per = 5
