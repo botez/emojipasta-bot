@@ -103,7 +103,7 @@ class Bot_Image_Filter():
         if not (per is None and url is None):
             try:
                 per = int(per)
-                if per >= 100 or per <= 1:
+                if per >= 100 or per < 1:
                     await self.client.say(":no_entry_sign: Percentage argument must be between 1 and 99.")
                     return
             except:
