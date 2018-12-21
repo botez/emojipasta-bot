@@ -15,8 +15,9 @@ from util.keys import DISCORD_BOT_KEY
 import psycopg2
 
 client = Bot(description="Emojipasta-Bot is a dicord bot for converting text to emojipasta. \n Bot Owner: toiletplunger#8909 \n Congrats! You don't need to add quotes anymore! ", command_prefix="&", pm_help = False)
-client.remove_command("help")
+# client.remove_command("help")
 #client.db = psycopg2.connect(dbname=DBVAR[0], host=DBVAR[1], user=DBVAR[2], password=DBVAR[3])
+
 
 class Bot_Events:
 
@@ -27,26 +28,12 @@ class Bot_Events:
             embed.set_author(name=ctx.message.author)
             embed.colour = ctx.message.author.colour if hasattr(ctx.message.author, "colour") else discord.Colour.default()
             await client.send_message(ctx.message.channel, embed=embed)
+
     @client.event
     async def on_command(command, ctx):
         logembed = discord.Embed(description="used the " + str(command) + " command.", timestamp=ctx.message.timestamp)
         logembed.set_author(name=ctx.message.server)
-        await client.send_message(discord.Object(id="522491106017935363"), embed=logembed)
-
-    @client.event
-    async def on_member_join(member):
-        server = member.server
-        if not (server.id == "419521489759502337"):
-            return
-        message = "Hello, welcome to Kermit House of Shitposting <@" + member.id + ">! Home of the Emojipasta Bot. Please check <#420627194348568576> before you send message. :) "
-        await client.send_message(discord.Object(id="420586176467042316"), content=message)
-    @client.event
-    async def on_member_remove(member):
-        server = member.server
-        if not (server.id == "419521489759502337"):
-            return
-        message = "The faggot known as <@" + member.id + "> has left :( \nhttps://cdn.discordapp.com/attachments/446345808346873858/446673433602818048/20180517_100014.png"
-        await client.send_message(discord.Object(id="420586176467042316"), content=message)
+        await client.send_message(discord.Object(id="525757563568914433"), embed=logembed)
 
     @client.event
     async def on_server_join(server):
@@ -75,7 +62,7 @@ class Bot_Events:
             data.set_author(name=server.name)
 
         try:
-            await client.send_message(discord.Object(id="436544688745480203"), content="I just got **added** into a new server! Now I'm in " + str(len(client.servers)) + " servers with " + str(len(set(client.get_all_members()))) + " users.", embed=data)
+            await client.send_message(discord.Object(id="525757563568914433"), content="I just got **added** into a new server! Now I'm in " + str(len(client.servers)) + " servers with " + str(len(set(client.get_all_members()))) + " users.", embed=data)
         except discord.HTTPException:
             await client.say("I need the `Embed links` permission to send this")
 
@@ -106,9 +93,10 @@ class Bot_Events:
             data.set_author(name=server.name)
 
         try:
-            await client.send_message(discord.Object(id="436544688745480203"), content="I just got **removed** from this server. Press XD to pay respect. Now I'm in " + str(len(client.servers)) + " servers with " + str(len(set(client.get_all_members()))) + " users.", embed=data)
+            await client.send_message(discord.Object(id="525757563568914433"), content="I just got **removed** from this server. Press XD to pay respect. Now I'm in " + str(len(client.servers)) + " servers with " + str(len(set(client.get_all_members()))) + " users.", embed=data)
         except discord.HTTPException:
             await client.say("I need the `Embed links` permission to send this")
+
 
 class Bot_Info:
 
@@ -120,52 +108,29 @@ class Bot_Info:
         embed.add_field(name="🏠", value=str(len(set(client.get_all_members())))+ ' **users**', inline=True)
         await client.say(embed=embed)
 
-    @client.command(pass_context=True)
-    @commands.cooldown(1, 8, commands.BucketType.user)
-    async def help(ctx, *args):
-        embed = discord.Embed(description=" Emojipasta-bot info")
-        embed.add_field(name="💬Command List", value=' https://www.emojipasta.fun/commands/', inline=True)
-        embed.add_field(name="🏠Support Server", value=' https://discord.gg/JHNRwr6', inline=True)
-        embed.add_field(name="🤥Twitter", value=' https://twitter.com/KShitpostbot', inline=True)
-        await client.say(embed=embed)
+    # @client.command(pass_context=True)
+    # @commands.cooldown(1, 8, commands.BucketType.user)
+    # async def help(ctx, *args):
+    #     embed = discord.Embed(description=" Emojipasta-bot info")
+    #     embed.add_field(name="💬Command List", value=' https://www.emojipasta.fun/commands/', inline=True)
+    #     embed.add_field(name="🏠Support Server", value=' https://discord.gg/JHNRwr6', inline=True)
+    #     embed.add_field(name="🤥Twitter", value=' https://twitter.com/KShitpostbot', inline=True)
+    #     await client.say(embed=embed)
 
     @client.command(pass_context=True)
     @commands.cooldown(1, 8, commands.BucketType.user)
     async def invite(ctx, *args):
-        await client.say("https://discordapp.com/oauth2/authorize?client_id=429662497172357123&scope=bot&permissions=8")
-
-    @client.command(pass_context=True)
-    @commands.cooldown(1, 8, commands.BucketType.user)
-    async def vote(ctx, *args):
-        await client.say("https://discordbots.org/bot/429662497172357123")
-
-    @client.command(pass_context=True)
-    @commands.cooldown(1, 8, commands.BucketType.user)
-    async def twitter(ctx, *args):
-        await client.say("https://twitter.com/KShitpostbot")
-
-    @client.command(pass_context=True)
-    @commands.cooldown(1, 8, commands.BucketType.user)
-    async def orange(ctx, *args):
-        await client.say("@Orange is my best big titty goth gf <33333")
+        await client.say('https://discordapp.com/oauth2/authorize?client_id={}&scope=bot&permissions=8'.format(client.user.id))
 
     @client.command(pass_context=True)
     @commands.cooldown(1, 8, commands.BucketType.user)
     async def github(ctx, *args):
-        await client.say("https://github.com/musca1997/emojipasta-bot")
+        await client.say("https://github.com/botez/emojipasta-bot")
 
     @client.command(pass_context=True)
     @commands.cooldown(1, 8, commands.BucketType.user)
     async def ping(ctx, *args):
         await client.say(":ping_pong: Pong!")
-        await asyncio.sleep(1)
-        await client.say(":warning: I'M GAY")
-
-    @commands.cooldown(1, 30, commands.BucketType.user)
-    @client.command(pass_context = True)
-    async def feedback(ctx, *, user_feedback):
-        await client.say("K, already sent your feedback 😎💯 ")
-        await client.send_message(discord.Object(id='434726800711483393'), str(ctx.message.author) + ' from <' + str(ctx.message.server) + '> just sent a feedback: ```' + str(user_feedback) + '```')
 
     @client.command(pass_context=True)
     @commands.cooldown(1, 8, commands.BucketType.user)
@@ -266,95 +231,99 @@ class Bot_Info:
         except discord.HTTPException:
             await client.say("I need the `Embed links` permission to send this")
 
+
 class Restricted:
 
     @client.command(pass_context=True)
     async def status(ctx,  *, new_stat):
         new_stat = "&help | " + new_stat
-        mod_id = ['349838216637186048','396783619466854402','183457916114698241','294963984535257089','223225823317065742','335509033282699275','257318564724211719','435285293063602181','324678737377492993','288657785955287040','267472888012079116']
+        mod_id = ['415218976344506368', '314210539498897418']
         if (str(ctx.message.author.id) in mod_id):
             await client.change_presence(game=discord.Game(name=(new_stat)))
             await client.say("Done.")
         else:
-            await client.say("HAHA CUCKED U DONT HAVE THE PERMISSION TO CHANGE MY STATUS.")
-
-
+            await client.say("You don't have permission to change my status.")
 
     @client.group(pass_context=True)
     async def emojipasta(ctx):
         if ctx.invoked_subcommand is None:
             await client.say(":no_entry_sign: Invalid subcommand passed.")
-    #@emojipasta.command(pass_context=True)
-    #async def enable(ctx):
-        #if not (str(ctx.message.author.id) == "183457916114698241" or str(ctx.message.author.id) == "349838216637186048"):
-            #return
 
-        #cur = client.db.cursor()
-        #cur.execute("DELETE FROM channels WHERE id=%s;", (ctx.message.channel.id,))
-        #client.db.commit()
-        #cur.close()
-        #await client.say(":white_check_mark: I am now enabled in <#" + ctx.message.channel.id + ">")
-    #@emojipasta.command(pass_context=True)
-    #async def disable(ctx):
-        #if not str(ctx.message.author.id) == "183457916114698241":
-            #return
+    # @emojipasta.command(pass_context=True)
+    # async def enable(ctx):
+    #     if not (str(ctx.message.author.id) == "183457916114698241" or str(ctx.message.author.id) == "349838216637186048"):
+    #         return
+    #
+    #     cur = client.db.cursor()
+    #     cur.execute("DELETE FROM channels WHERE id=%s;", (ctx.message.channel.id,))
+    #     client.db.commit()
+    #     cur.close()
+    #     await client.say(":white_check_mark: I am now enabled in <#" + ctx.message.channel.id + ">")
+    # @emojipasta.command(pass_context=True)
+    # async def disable(ctx):
+    #     if not str(ctx.message.author.id) == "183457916114698241":
+    #         return
+    #
+    #     cur = client.db.cursor()
+    #     cur.execute("""
+    #         INSERT INTO channels (id)
+    #         SELECT %s
+    #         WHERE
+    #             NOT EXISTS (
+    #                 SELECT id FROM channels WHERE id=%s
+    #             );""", (ctx.message.channel.id,ctx.message.channel.id))
+    #     client.db.commit()
+    #     cur.close()
+    #     await client.say(":x: I am now disabled in <#" + ctx.message.channel.id + ">")
 
-        #cur = client.db.cursor()
-        #cur.execute("""
-            #INSERT INTO channels (id)
-            #SELECT %s
-            #WHERE
-                #NOT EXISTS (
-                    #SELECT id FROM channels WHERE id=%s
-                #);""", (ctx.message.channel.id,ctx.message.channel.id))
-        #client.db.commit()
-        #cur.close()
-        #await client.say(":x: I am now disabled in <#" + ctx.message.channel.id + ">")
-    @client.event
-    async def on_message(message):
-        #if not message.content.startswith("&emojipasta"):
-            #cur = client.db.cursor()
-            #cur.execute("SELECT exists (SELECT 1 FROM channels WHERE id=%s LIMIT 1);", (message.channel.id,))
-            #result = cur.fetchone()[0]
-            #cur.close()
-            #if result is True:
-                #return
-        await client.process_commands(message)
-        if (message.content.startswith("spank me") or message.content.startswith("Spank me") or message.content.startswith("SPANK ME")):
-            await client.add_reaction(message, '👏')
-            await client.add_reaction(message, '🍑')
-        if (message.content.startswith("despacito") or message.content.startswith("Despacito") or message.content.startswith("DESPACITO")):
-            await client.add_reaction(message, '😍')
+    # @client.event
+    # async def on_message(message):
+    #     if not message.content.startswith("&emojipasta"):
+    #         cur = client.db.cursor()
+    #         cur.execute("SELECT exists (SELECT 1 FROM channels WHERE id=%s LIMIT 1);", (message.channel.id,))
+    #         result = cur.fetchone()[0]
+    #         cur.close()
+    #         if result is True:
+    #             return
+    #     await client.process_commands(message)
+    #     if (message.content.startswith("spank me") or message.content.startswith("Spank me") or message.content.startswith("SPANK ME")):
+    #         await client.add_reaction(message, '👏')
+    #         await client.add_reaction(message, '🍑')
+    #     if (message.content.startswith("despacito") or message.content.startswith("Despacito") or message.content.startswith("DESPACITO")):
+    #         await client.add_reaction(message, '😍')
+    #
+    #     if message.channel.id == "431202784575094794" or message.channel.id == "442488016523624448":
+    #         url = ""
+    #         if message.attachments:
+    #             url = str(message.attachments[0]['url'])
+    #         elif message.embeds:
+    #             url = str(message.embeds[0]['url'])
+    #         files = {"431202784575094794": "textfiles/memetemplates.txt", "442488016523624448": "textfiles/comics.txt"}
+    #         f = open(files[str(message.channel.id)], 'a')
+    #         f.write(url + '\n')
+    #         f.close()
+    #         embed = discord.Embed(description="File added to " + files[str(message.channel.id)] + " by " + str(message.author))
+    #         await client.send_message(discord.Object(id="436544688745480203"), embed=embed)
 
-        if message.channel.id == "431202784575094794" or message.channel.id == "442488016523624448":
-            url = ""
-            if message.attachments:
-                url = str(message.attachments[0]['url'])
-            elif message.embeds:
-                url = str(message.embeds[0]['url'])
-            files = {"431202784575094794": "textfiles/memetemplates.txt", "442488016523624448": "textfiles/comics.txt"}
-            f = open(files[str(message.channel.id)], 'a')
-            f.write(url + '\n')
-            f.close()
-            embed = discord.Embed(description="File added to " + files[str(message.channel.id)] + " by " + str(message.author))
-            await client.send_message(discord.Object(id="436544688745480203"), embed=embed)
 
 def main():
     @client.event
     async def on_ready():
-    	print('Logged in as '+client.user.name+' (ID:'+client.user.id+') | Connected to '+str(len(client.servers))+' servers | Connected to '+str(len(set(client.get_all_members())))+' users')
-    	print('--------')
-    	print('Current Discord.py Version: {} | Current Python Version: {}'.format(discord.__version__, platform.python_version()))
-    	print('--------')
-    	print('Use this link to invite {}:'.format(client.user.name))
-    	print('https://discordapp.com/oauth2/authorize?client_id={}&scope=bot&permissions=8'.format(client.user.id))
-    	print('--------')
-    	print('--------')
+        print('Logged in as '+client.user.name+' (ID:'+client.user.id+') | Connected to '+str(len(client.servers))+' servers | Connected to '+str(len(set(client.get_all_members())))+' users')
+        print('--------')
+        print('Current Discord.py Version: {} | Current Python Version: {}'.format(discord.__version__, platform.python_version()))
+        print('--------')
+        print('Use this link to invite {}:'.format(client.user.name))
+        print('https://discordapp.com/oauth2/authorize?client_id={}&scope=bot&permissions=8'.format(client.user.id))
+        print('--------')
+        print('--------')
 
     cogs = ['image', 'moderation', 'frames', 'emojibomb', 'general', 'fun', 'games', 'imagepaste']
     for cog in cogs:
         client.load_extension(cog)
 
     client.run(DISCORD_BOT_KEY)
+
+
 if __name__ == "__main__":
     main()
