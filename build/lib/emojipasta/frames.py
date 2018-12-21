@@ -118,8 +118,8 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
-    async def kek(self):
+    @commands.command(description="template 0 66 522 444")
+    async def rapper(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
@@ -178,17 +178,17 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 0 87 714 546")
     async def nut(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 9 195 888 492")
     async def altright(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 16 86 571 330")
     async def buzzfeed(self):
         pass
 
@@ -228,7 +228,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 28 9 633 288")
     async def memri(self):
         pass
 
@@ -238,7 +238,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 15 82 761 420")
     async def porn(self):
         pass
 
@@ -272,11 +272,6 @@ class Frames():
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def dg(self):
-        pass
-
-    @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
-    async def viper(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
@@ -365,7 +360,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 0 0 300 238")
     async def wtc1(self):
         pass
 
@@ -420,7 +415,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 46 55 310 128")
     async def funeral(self):
         pass
 
@@ -430,12 +425,12 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 59 0 283 225")
     async def clash(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 158 12 236 245")
     async def wedding(self):
         pass
 
@@ -475,12 +470,12 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 0 49 640 382")
     async def gccx1(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 0 19 259 154")
     async def gccx2(self):
         pass
 
@@ -495,12 +490,12 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 204 0 330 246")
     async def mars(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="0 0 600 307")
     async def picard(self):
         pass
 
@@ -510,7 +505,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 0 147 1000 686")
     async def science(self):
         pass
 
@@ -575,7 +570,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 75 26 384 318")
     async def cruz(self):
         pass
 
@@ -605,7 +600,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 503 0 684 717")
     async def jones(self):
         pass
 
@@ -615,12 +610,12 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 119 67 258 258")
     async def n64(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 7 90 441 288")
     async def obama1(self):
         pass
 
@@ -640,7 +635,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 0 86 569 527")
     async def son(self):
         pass
 
