@@ -703,7 +703,7 @@ class Frames():
         elif split[0] == "addframe":
             await self.get_attachment_images(ctx)
             test_image = Image.open(picture_path)
-            test_image.save("frames/testframe.png")
+            test_image.convert("RGBA").save("frames/testframe.png")
             await self.client.send_message(ctx.message.channel, "Changed test frame")
             return
         else:
