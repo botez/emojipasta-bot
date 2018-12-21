@@ -567,7 +567,7 @@ class Frames():
 
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
-    async def dab(self):
+    async def dab1(self):
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
