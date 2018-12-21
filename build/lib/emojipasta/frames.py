@@ -6,27 +6,32 @@ from PIL import Image, ImageFilter, ImageOps, ImageEnhance
 import urllib.request
 from util.functions import Functions
 
+
 class Frames():
     def __init__(self, client):
         self.client = client
 
-#meme frames
+# meme frames
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame zucc1 zucc2 zucc3 zucc4")
     async def zucc(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def zucc1(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def zucc2(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def zucc3(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def zucc4(self):
@@ -51,26 +56,32 @@ class Frames():
     @commands.command(description="frame idub1 idub2 idub3 idub4 idub5 idub6")
     async def idub(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def idub1(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def idub2(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def idub3(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def idub4(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def idub5(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def idub6(self):
@@ -80,10 +91,12 @@ class Frames():
     @commands.command(description="frame swear1 swear2")
     async def swear(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def swear1(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def swear2(self):
@@ -245,10 +258,12 @@ class Frames():
     @commands.command(description="frame coil1 coil2")
     async def coil(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def coil1(self):
         pass
+
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def coil2(self):
@@ -354,7 +369,6 @@ class Frames():
     async def wtc1(self):
         pass
 
-    
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def wtc2(self):
@@ -396,7 +410,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="frame")
+    @commands.command(description="template 35 48 229 190")
     async def garf1(self):
         pass
 
@@ -645,8 +659,7 @@ class Frames():
     async def trump(self):
         pass
 
-
-#film frames
+# film frames
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def cowboy(self):
@@ -656,29 +669,55 @@ class Frames():
     @commands.command(description="frame")
     async def lynch(self):
         pass
-#func thinggy
+
+# func thinggy
     async def on_command(self, command, ctx):
         if not command.description:
             return
         split = command.description.split()
-        if len(split) > 1:
-            rand = randint(0, len(split) - 1)
-            command = str(split[rand])
-        command = str(command)
-        frame = "frames/"+command+".png"
-        picture = str(ctx.message.channel.id)+'.png'
+        if split[0] == "frame":
+            if len(split) > 1:
+                rand = randint(1, len(split) - 1)
+                frame_name = split[rand]
+            else:
+                frame_name = str(command)
+            background_offset = (0, 0)
+            background_resize = None
+        elif split[0] == "template":
+            if len(split) != 5:
+                return
+            frame_name = str(command)
+            try:
+                x, y, width, height = [int(x) for x in split[1:]]
+            except ValueError:
+                return
+            background_offset = (x, y)
+            background_resize = (width, height)
+        else:
+            return
+        frame_path = "frames/"+frame_name+".png"
+        picture_path = str(ctx.message.channel.id)+'.png'
         await self.client.send_message(ctx.message.channel, "**processing...**")
-        await Frames.filtered_image(self, ctx, picture, frame)
-        await self.client.send_file(ctx.message.channel, picture)
+        await self.filtered_image(ctx, picture_path, frame_path, background_offset, background_resize)
+        await self.client.send_file(ctx.message.channel, picture_path)
 
-    async def filtered_image(self, ctx, pic_name, chosen_filter):
-        await Frames.get_attachment_images(self, ctx)
-        background = Image.open(pic_name)
-        w, h = background.size
+    async def filtered_image(self, ctx, picture_path, chosen_filter, background_offset=(0, 0), background_resize=None):
+        await self.get_attachment_images(ctx)
+        # "background" is the image to edit, "foreground" is the frame
+        background = Image.open(picture_path)
         foreground = Image.open(chosen_filter)
-        foreground = foreground.resize((w,h), Image.ANTIALIAS)
-        background.paste(foreground, (0, 0), foreground)
-        background.save(pic_name)
+        if background_resize:
+            background.resize(background_resize, Image.ANTIALIAS)
+            # like a fucked up sandwich we paste the image over the frame, and then the frame again over the result
+            foreground_copy = foreground.copy()
+            foreground.paste(background, background_offset)
+            foreground.paste(foreground_copy, (0, 0), foreground_copy)
+            foreground.save(picture_path)
+        else:
+            w, h = background.size
+            foreground = foreground.resize((w, h), Image.ANTIALIAS)
+            background.paste(foreground, (0, 0), foreground)
+            background.save(picture_path)
 
     async def get_attachment_images(self, ctx):
         last_attachment = None
@@ -701,12 +740,13 @@ class Frames():
                         break
                 else:
                     continue
-        pic_name = str(ctx.message.channel.id)+'.png'
+        picture_path = str(ctx.message.channel.id)+'.png'
         headers = {'User-Agent':'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'}
         f = urllib.request.Request(url=last_attachment,headers=headers)
         f = urllib.request.urlopen(f)
-        with open(pic_name, "wb") as c:
+        with open(picture_path, "wb") as c:
             c.write(f.read())
+
 
 def setup(client):
     client.add_cog(Frames(client))
