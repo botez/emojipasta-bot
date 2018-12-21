@@ -707,7 +707,7 @@ class Frames():
         background = Image.open(picture_path)
         foreground = Image.open(chosen_filter)
         if background_resize:
-            background.resize(background_resize, Image.ANTIALIAS)
+            background = background.resize(background_resize, Image.ANTIALIAS)
             # like a fucked up sandwich we paste the image over the frame, and then the frame again over the result
             foreground_copy = foreground.copy()
             foreground.paste(background, background_offset)
