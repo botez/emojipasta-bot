@@ -665,11 +665,23 @@ class Frames():
     async def lynch(self):
         pass
 
+# test frame
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="frame")
+    async def testframe(self):
+        pass
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="addframe")
+    async def addtestframe(self):
+        pass
+
 # func thinggy
     async def on_command(self, command, ctx):
         if not command.description:
             return
         split = command.description.split()
+        picture_path = str(ctx.message.channel.id)+'.png'
         if split[0] == "frame":
             if len(split) > 1:
                 rand = randint(1, len(split) - 1)
@@ -688,10 +700,15 @@ class Frames():
                 return
             background_offset = (x, y)
             background_resize = (width, height)
+        elif split[0] == "addframe":
+            await self.get_attachment_images(ctx)
+            test_image = Image.open(picture_path)
+            test_image.save("frames/testframe.png")
+            await self.client.send_message(ctx.message.channel, "Changed test frame")
+            return
         else:
             return
         frame_path = "frames/"+frame_name+".png"
-        picture_path = str(ctx.message.channel.id)+'.png'
         await self.client.send_message(ctx.message.channel, "**processing...**")
         await self.filtered_image(ctx, picture_path, frame_path, background_offset, background_resize)
         await self.client.send_file(ctx.message.channel, picture_path)
