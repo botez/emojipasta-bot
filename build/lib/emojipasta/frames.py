@@ -365,6 +365,12 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
+    @commands.command(description="template 0 0 300 238")
+    async def calvin(self):
+        pass
+
+
+    @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(description="frame")
     async def wtc2(self):
         pass
@@ -495,7 +501,7 @@ class Frames():
         pass
 
     @commands.cooldown(1, 5, commands.BucketType.user)
-    @commands.command(description="0 0 600 307")
+    @commands.command(description="template 0 0 600 307")
     async def picard(self):
         pass
 
